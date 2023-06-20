@@ -6,6 +6,8 @@
 .fundNav{
     
 	background-color: #5B618A;
+    border-radius: 2px 2px ;
+    color-scheme: transparent;
 }
 
 .icons{
@@ -18,4 +20,7 @@
      right: 20px;
      top: 5px;
 }
-    
+   
+.hide {
+    display: none;
+} 

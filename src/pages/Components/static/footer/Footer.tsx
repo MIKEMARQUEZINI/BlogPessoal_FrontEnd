@@ -14,13 +14,13 @@ function Footer() {
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center" className="social" >
                             <a href="https://www.facebook.com/generationbrasil" target="_blank">
-                            <img width="42" height="42" src="https://img.icons8.com/pulsar-color/42/facebook.png" alt="facebook"/>
+                            <img src="https://img.icons8.com/pulsar-color/42/facebook.png" alt="facebook"/>
                             </a>
                             <a href="https://www.instagram.com/generationbrasil/" target="_blank">
-                            <img width="42" height="42" src="https://img.icons8.com/pulsar-color/42/instagram-new.png" alt="instagram-new"/>
+                            <img src="https://img.icons8.com/pulsar-color/42/instagram-new.png" alt="instagram-new"/>
                             </a>
                             <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
-                            <img width="42" height="42" src="https://img.icons8.com/pulsar-color/42/linkedin.png" alt="linkedin"/>
+                            <img src="https://img.icons8.com/pulsar-color/42/linkedin.png" alt="linkedin"/>
                             </a>
                         </Box>
                     </Box>

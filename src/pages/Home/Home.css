@@ -1,20 +1,18 @@
-.fundao{
-    background: #777DA6;
-    border-radius: 2px 2px 30px 30px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.caixa{
+    background-color: #5B618A;
 }
 
 .titulo{
-    color: white !important;
-    font-Weight: "bolder"
+   color: white !important;
+   font-weight: bold !important;
 }
 
 .botao{
-   border-color: white!important;
-   background-color: "#76baad"; 
-   color: white!important; 
+    border-color: white !important;
+    background-color: #5B618A;
+    color: white !important;
 }
 
 .postagens{
-    background-color: #777DA6;
+    background-color: white;
 }
