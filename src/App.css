@@ -1,4 +1,5 @@
 body{
-    background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2655.jpg?w=1380&t=st=1687553217~exp=1687553817~hmac=5d5870facaf54eb9536822262ac39a60d7aa555b72b6da6a623522f92d74a26f");
-    background-size: cover
+    background: rgb(76,57,176);
+background: linear-gradient(90deg, rgba(76,57,176,0.8261353567744909) 0%, rgba(204,84,131,0.5311915365497717) 100%);
+ background-size: cover
 }

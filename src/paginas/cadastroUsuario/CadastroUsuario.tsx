@@ -74,7 +74,6 @@ function CadastroUsuario() {
                                 </Button>
                             </Link>
                             <Link to='/login' className='text-decorator-none'>
-
                             </Link>
                             <Button type='submit' variant='contained' color='primary'>
                                 Cadastrar
