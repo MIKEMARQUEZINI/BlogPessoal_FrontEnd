@@ -52,34 +52,50 @@ function Login() {
 
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid alignItems='center' xs={6}>
-                <Box paddingX={20}>
-                    <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
-                        <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
-                        <Box marginTop={2} textAlign='center'>
-                                <Button type='submit' variant='contained' color='primary'>
-                                    Logar
-                                </Button>
-                        </Box>
-                    </form>
-                    <Box display='flex' justifyContent='center' marginTop={2}>
-                        <Box marginRight={1}>
-                            <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
-                        </Box>
-                        <Link to='/cadastrousuario'>
-                            <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>
-                        </Link>
+        <div className="container">
+	<div className="screen">
+		<div className="screen__content">
+			<form onSubmit={onSubmit} className="login">
+				<div className="login__field">
+					<i className="login__icon fas fa-user"></i>
+					<TextField type="text" className="login__input" value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário'  name='usuario' />
+				</div>
+				<div className="login__field">
+					<i className="login__icon fas fa-lock"></i>
+					<TextField type="password" className="login__input" value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' name='senha' />
+				</div>
+				<button className="button login__submit">
+					<span className="button__text">Entrar</span>
+					<i className="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+                               
+                        
+                                            
+                
+			<div className="social-login">
+				<h3>People Blog</h3>
+                <Link to='/cadastrousuario'>
+                <button className="button create__submit">
+                             
                             
-                    </Box>
-                </Box>
-            </Grid>
-            <Grid xs={6} className='imagem'>
-
-            </Grid>
-        </Grid>
+					<span className="button__text">Cadastre-se</span>
+					<i className="button__icon fas fa-chevron-right"></i>
+				</button>	
+                </Link>
+				<div className="social-icons">
+					
+				</div>
+			</div>
+		</div>
+		<div className="screen__background">
+			<span className="screen__background__shape screen__background__shape4"></span>
+			<span className="screen__background__shape screen__background__shape3"></span>		
+			<span className="screen__background__shape screen__background__shape2"></span>
+			<span className="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
     );
 }
 
