@@ -8,6 +8,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -33,7 +34,16 @@ function Home() {
 
   useEffect(() => {
     if (token == "") {
-        alert("Você precisa estar logado")
+        toast.warn('Você precisa se conectar!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
         navigate("/login")
 
     }

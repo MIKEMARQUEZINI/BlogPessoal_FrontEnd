@@ -6,11 +6,11 @@ import { Grid, Typography, Button, TextField } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
-
     let navigate = useNavigate();
-    const [confirmarSenha, setConfirmarSenha] = useState<String>("")
+    const [confirmarSenha,setConfirmarSenha] = useState<String>("")
     const [user, setUser] = useState<User>(
         {
             id: 0,
@@ -34,7 +34,7 @@ function CadastroUsuario() {
     }, [userResult])
 
 
-    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
+    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
         setConfirmarSenha(e.target.value)
     }
 
@@ -49,43 +49,132 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (confirmarSenha == user.senha) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
-        } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+
+        if (user.nome.length < 3) {
+            toast.warn('O nome deve ter pelo menos 3 caracteres.', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            return;
+        }
+
+        if (!user.usuario.includes('@') && !user.usuario.includes('.')) {
+            toast.warn('e-mail inválido para cadastro', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            return;
+        }
+
+        if (user.usuario.length <= 6){
+            toast.warn('digite no mínimo 6 caracteres no seu usuario.', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            return;
+        }
+
+        if (user.senha.length < 8) {
+            toast.warn('A senha deve ter pelo menos 8 caracteres.', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            return;
+        }
+
+        if(confirmarSenha == user.senha){
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        toast.success('Usuario cadastrado com sucesso!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+        }else{
+            toast.warn('Dados inconsistentes. . Favor verificar as informações de cadastro!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
+            
         }
     }
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} className='imagem2'></Grid>
-            <Grid item xs={6} alignItems='center'>
-                <Box paddingX={10}>
-                    <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
-                        <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
-                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
-                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
-                        <Box marginTop={2} textAlign='center'>
-                            <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btnCancelar'>
-                                    Cancelar
-                                </Button>
-                            </Link>
-                            <Link to='/login' className='text-decorator-none'>
-                            </Link>
-                            <Button type='submit' variant='contained' color='primary'>
-                                Cadastrar
+
+
+        <div className="box">
+            <div className="form">
+                <h2>Criar Conta</h2>
+                <form onSubmit={onSubmit}>
+                    <div className="inputBox">
+                        <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome Completo' name='nome' />
+                        <i></i>
+                    </div>
+                    <div className="inputBox">
+                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' name='usuario' />
+                        <i></i>
+                    </div>
+                    <div className="inputBox">
+
+                        <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' name='senha'  type='password'/>
+                        <i></i>
+                    </div>
+                    <div className="inputBox">
+                        <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirme a Senha' name='confirmarSenha' type='password'/>
+                        <i></i>
+                    </div>
+                    <div>
+                    <Button type='submit' color="secondary">
+                                    Cadastrar
                             </Button>
-                        </Box>
-                    </form>
-                </Box>
-            </Grid>
+
+                    </div>
+
+                    <div className="links submit"><a href="#">
+                        <Link to='/login'>
+                            <h2>Voltar a tela de Login</h2>
+                        </Link></a>
+                    </div>
 
 
 
-        </Grid>
+                </form>
+            </div>
+
+        </div>
     );
 }
 

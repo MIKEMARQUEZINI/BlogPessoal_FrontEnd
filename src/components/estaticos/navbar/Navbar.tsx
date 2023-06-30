@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { useDispatch } from "react-redux";
 import { addToken } from '../../../store/tokens/actions';
+import { toast } from "react-toastify";
 
 
 
@@ -23,6 +24,16 @@ function Navbar() {
 
     function goLogout() {
         dispatch(addToken(''));
+        toast.info('Usuario desconectado!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
         navigate('/login')
     }
 
