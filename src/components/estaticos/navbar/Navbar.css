@@ -5,7 +5,7 @@
     border-radius: 0% 0% 10% 10%;  
     display: flex !important;  
     align-items: center !important;
-    height: 6vh;
+    height: 5vh;
 }
     
 
@@ -14,7 +14,7 @@
     cursor: pointer;
     width: 37px;
     height: 37px;
-    padding: 7vh;
+    margin-left: 35px;
 
     
 }

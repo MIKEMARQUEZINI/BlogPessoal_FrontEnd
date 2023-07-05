@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service'
-import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import {Box} from '@mui/material';
+import { Card, CardActions, CardContent, Button, Typography, CardActionArea, CardMedia, Paper, Chip } from '@material-ui/core';
+import { Box } from '@mui/material';
 import './ListaPostagem.css';
-import {useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import Edit from '../../../assets/edit.gif'
+import Delete from '../../../assets/delete.gif'
+import FaceIcon from '@material-ui/icons/Face';
+
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
@@ -28,7 +32,7 @@ function ListaPostagem() {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
+      });
       navigate("/login")
 
     }
@@ -52,42 +56,51 @@ function ListaPostagem() {
     <>
       {
         posts.map(post => (
-          <Box m={2} >
-            <Card variant="outlined">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Postagens
-                </Typography>
-                <Typography variant="h5" component="h2">
-                  {post.titulo}
-                </Typography>
-                <Typography variant="body2" component="p">
-                  {post.texto}
-                </Typography>
-                <Typography variant="body2" component="p">
-                  {post.tema?.descricao}
-                </Typography>
-              </CardContent>
+          <Box className='alinhar'>
+            <Paper elevation={6} >
+              <CardActionArea>
+                <CardMedia
+                  className='titulo' title={post.titulo}
+                />
+                <CardContent>
+
+                  <Typography variant="h5" component="h2">
+                    {post.titulo}
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    {post.texto}
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    {post.tema?.descricao}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
                   <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                        atualizar
-                      </Button>
+                      <img src={Edit} width='40' height='40' alt="" />
                     </Box>
                   </Link>
                   <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
-                        deletar
-                      </Button>
+                      <img src={Delete} width='40' height='40' alt="" />
                     </Box>
+
                   </Link>
                 </Box>
               </CardActions>
-            </Card>
+              <Link to='/temas'>
+              <Chip
+                icon={<FaceIcon />}
+                label={post.tema?.descricao}
+                clickable
+              />
+              </Link>
+
+
+            </Paper>
           </Box>
         ))
       }
