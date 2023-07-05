@@ -56,7 +56,7 @@ function ListaPostagem() {
     <>
       {
         posts.map(post => (
-          <Box className='alinhar'>
+          <Box className='layout'>
             <Paper elevation={6} >
               <CardActionArea>
                 <CardMedia
