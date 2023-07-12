@@ -11,32 +11,34 @@
   justify-content: center !important;
   align-items: center!important;
   background: rgb(7,30,76);
-    background: linear-gradient(90deg, rgba(7,30,76,1) 0%, rgba(166,77,107,1) 100%);
-  }
+  background: linear-gradient(90deg, rgba(7,30,76,1) 0%, rgba(166,77,107,1) 100%);
+    
+}
 
   
     
 
 .box {
 	position: relative;
-	width: 380px ;
-	height: 420px ;
-	top: 50% ;
-	left: 50% ;
+	width: 30em ;
+	height: 30em ;
+	top: 100% ;
+	left: 35% ;
 	background: #1c1c1c;
-	margin-top: 100px ;
-	margin-left: -250px ;
+	margin-top: 15em ;
+	margin-left: -12.5em ;
 	color: aliceblue;
-	border-radius: 8px;
+	border-radius: 0.75em;
 	overflow: hidden!important;
   }
+
 .box::before {
   content: "";
   position: absolute;
   top: -50% ;
   left: -50% ;
-  width: 380px;
-  height: 420px;
+  width: 30em;
+  height: 30em;
   background: rgb(76,57,176);
 	background: linear-gradient(32deg, rgba(76,57,176,0.8261353567744909) 0%, rgba(104,13,49,1) 100%);
   transform-origin: bottom right;
@@ -47,8 +49,8 @@
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 380px;
-  height: 420px;
+  width: 30em;
+  height: 30em;
  background: rgb(76,57,176);
 	background: linear-gradient(32deg, rgba(76,57,176,0.8261353567744909) 0%, rgba(104,13,49,1) 100%);
   transform-origin: bottom right;
@@ -65,11 +67,11 @@
 }
 .form {
   position: absolute;
-  inset: 2px;
-  border-radius: 8px;
+  inset: 0.20em;
+  border-radius: 0.80em;
   background-color: #28292d;
   z-index: 10;
-  padding: 50px 40px;
+  padding: 3em 4em;
   display: flex;
   flex-direction: column;
 }
@@ -81,17 +83,17 @@
 }
 .inputBox {
   position: relative;
-  width: 300px;
-  margin-top: 35px;
+  width: 20em;
+  margin-top: 2em;
 }
 .inputBox input {
   position: relative;
   width: 100%;
-  padding: 20px 10px 10px;
+  padding: 1em 0.75em 0.75em;
   background: transparent;
   border: none;
   outline: none;
-  color: #333336;
+  color: #ffffff;
   font-size: 1em;
   letter-spacing: 0.05em;
   z-index: 10;
@@ -99,7 +101,7 @@
 .inputBox span {
   position: absolute;
   left: 0;
-  padding: 20px 0px 10px;
+  padding: 1em 0.75em 0.75em;
   font-size: 1em;
   color: #8f8f8f;
   pointer-events: none;
@@ -112,14 +114,15 @@
   transform: translateX(0px) translateY(-34px);
   font-size: 0.75em;
 }
+/* campo de usuario */
 .inputBox i {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 2px;
+  height: 0.80em;
   background: #3b3b3b;
-  border-radius: 4px;
+  border-radius: 0.3em;
   transition: 0.5s;
   pointer-events: none;
   z-index: 9;
@@ -133,7 +136,7 @@
   justify-content: space-between;
 }
 .links a {
-  margin: 10px 0;
+  margin: 0.85em 0;
   font-size: 0.75em;
   color: #8f8f8f;
   text-decoration: none;
@@ -147,10 +150,10 @@ input[type="submit"] {
   outline: none;
   background: transparent;
   color:#fff;
-  padding: 11px 25px;
-  width: 100px;
-  margin-top: 10px;
-  border-radius: 4px;
+  padding: 1em 1em;
+  width: 10em;
+  margin-top: 0.70em;
+  border-radius: 2ch;
   font-weight: 600;
   cursor: pointer;
   transition: all .3s ease;

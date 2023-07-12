@@ -83,7 +83,7 @@ function Login() {
                             <input type="text" className="inputBox" value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' placeholder='Usuário' name='usuario' />
                             <i></i>
                         </div>
-                        <div className="inputBox1">
+                        <div className="inputBox">
 
                             <input value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' placeholder='Senha' name='senha' type='password' />
                             <i></i>

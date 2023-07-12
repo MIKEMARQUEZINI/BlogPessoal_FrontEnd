@@ -134,26 +134,26 @@ function CadastroUsuario() {
     }
     return (
 
-        <div className="body">
+        <div className="body1">
             <div className="box1" >
                 <div className="form1">
                     <h2>Criar Conta</h2>
                     <form onSubmit={onSubmit}>
                         <div className="inputBox1">
-                            <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome Completo' name='nome' type='text' variant="filled" fullWidth />
+                            <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome Completo' name='nome' type='text' variant="outlined"  fullWidth />
                             <i></i>
                         </div>
                         <div className="inputBox1" >
-                            <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' name='usuario' type='text' variant="filled" fullWidth />
+                            <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' name='usuario' type='text' variant="outlined" fullWidth />
                             <i></i>
                         </div>
                         <div className="inputBox1">
 
-                            <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' name='senha' type='password' variant="filled" fullWidth />
+                            <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' name='senha' type='password' variant="outlined" fullWidth />
                             <i></i>
                         </div>
                         <div className="inputBox1">
-                            <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirme a Senha' name='confirmarSenha' type='password' variant="filled" fullWidth />
+                            <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='Confirme a Senha' name='confirmarSenha' type='password' variant="outlined" fullWidth />
                             <i></i>
                         </div>
                         <div>
